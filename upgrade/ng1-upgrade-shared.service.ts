@@ -1,20 +1,20 @@
 /**
  * Injectable Angular 2 global upgrade service.
  */
-import { Injectable } from '@angular/core'
-import { UpgradeAdapterRef } from '@angular/upgrade';
-import * as ng1 from '@angular/upgrade/src/angular_js';
+import {Injectable} from '@angular/core'
+import {UpgradeAdapterRef} from '@angular/upgrade';
+import {IInjectorService, IRootScopeService} from "@angular/upgrade/static/src/common/angular1";
 
 @Injectable()
 export class Ng1Ng2UpgradeSharedService {
 
     public upgradeAdapterRef:UpgradeAdapterRef;
-    public $rootScope:ng1.IRootScopeService;
-    public $injector:ng1.IInjectorService;
+    public $rootScope:IRootScopeService;
+    public $injector:IInjectorService;
 
 
     /**
-     * Sets the given upgradeAdapterRef which allows us to access AngularJS members.
+     * Sets the given upgradeAdapterRef which allows us to access Angular 1 members.
      *
      * @param upgradeAdapterRef
      */
@@ -24,7 +24,7 @@ export class Ng1Ng2UpgradeSharedService {
     }
 
     /**
-     * Initializes AngularJS members such as $rootScope or the injector.
+     * Initializes Angular 1 members such as the $rootScope or the injector.
      *
      * @param upgradeAdapterRef
      */
